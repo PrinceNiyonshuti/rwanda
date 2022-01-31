@@ -8,11 +8,11 @@ Rwanda is organized in four provinces in addition to the Kigali city, 30 Distric
 
 ## Endpoints
 
-- [Provinces()](#provinces)
-- [Districts()](#districts)
-- [Sectors()](#sectors)
-- [Cells()](#cells)
-- [Villages()](#villages)
+- [Provinces](#/api/provinces)
+- [Districts](#/api/districts)
+- [Sectors](#/api/sectors)
+- [Cells](#/api/cells)
+- [Villages](#/api/villages)
 
 ## Usage
 
