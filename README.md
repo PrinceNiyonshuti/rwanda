@@ -25,7 +25,7 @@ All inputs are case-insensitive.
 Returns array of country provinces.
 
 ```json
-["East", "Kigali", "North", "South", "West"];
+["East", "Kigali", "North", "South", "West"]
 ```
 
 ### Districts()
@@ -66,20 +66,12 @@ By default it returns an array of all country villages.
 
 ## Install
 
-```cli
-npm install rwanda
-```
 
-or
-
-```cli
-yarn add rwanda
-```
 
 # Contributors
 
 | [<img src="https://github.com/PrinceNiyonshuti.png" width="100px;"><br><sub><b>Niyonshuti Prince</b></sub>](https://github.com/PrinceNiyonshuti) |
-| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------- |
+| :------------------------------------------------------------------------------------------------------------------------ |
 
 ## Author
 
