@@ -25,3 +25,5 @@ Route::prefix('/Provinces')->group(function () {
     Route::patch('{province}', [ProvinceController::class, 'update']);
     Route::delete('{province}', [ProvinceController::class, 'destroy']);
 });
+
+
