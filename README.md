@@ -25,7 +25,23 @@ All inputs are case-insensitive.
 Returns array of country provinces.
 
 ```json
-["East", "Kigali", "North", "South", "West"]
+[
+    {
+        "provinceName": "Kigali"
+    },
+    {
+        "provinceName": "East"
+    },
+    {
+        "provinceName": "North"
+    },
+    {
+        "provinceName": "South"
+    },
+    {
+        "provinceName": "West"
+    }
+]
 ```
 
 ### Districts

@@ -53,12 +53,12 @@ class ProvinceController extends Controller
                 'Province' => [$currentProvince]
             ], 200);
         }
-
         return response()->json([
             'message' => 'No Province Found'
         ], 404);
     }
-    public function destroy(Request $request, $id)
+
+    public function destroy($id)
     {
         $currentProvince =  Province::find($id);
         if ($currentProvince) {
@@ -67,7 +67,6 @@ class ProvinceController extends Controller
                 'message' => 'Province Deleted Successfully',
             ], 200);
         }
-
         return response()->json([
             'message' => 'No Province Found'
         ], 404);
