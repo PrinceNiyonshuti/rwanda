@@ -22,7 +22,7 @@ All inputs are case-insensitive.
 
 ### Provinces
 
-Returns object of country provinces , if no params (province) is given
+Returns array of country provinces , if no params is given
 
 ```json
 [
@@ -43,7 +43,7 @@ Returns object of country provinces , if no params (province) is given
     }
 ]
 ```
-#### Available params for province endpoint
+#### Available parameter for province endpoint
 [url/api/provinces/2](#) for viewing single province
 If province id is given it returns an object of province details.
 It returns `[null]` if province is not found.
