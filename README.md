@@ -20,7 +20,7 @@ Rwanda is organized in four provinces in addition to the Kigali city, 30 Distric
 
 All inputs are case-insensitive.
 
-### Provinces()
+### Provinces
 
 Returns array of country provinces.
 
@@ -28,7 +28,7 @@ Returns array of country provinces.
 ["East", "Kigali", "North", "South", "West"]
 ```
 
-### Districts()
+### Districts
 
 By default it returns an array of country districts, if no params (province) is given
 
@@ -37,7 +37,7 @@ By default it returns an array of country districts, if no params (province) is 
   If province is given it returns an array of districts found in that province.
   It returns `[]` if province is not found.
 
-### Sectors()
+### Sectors
 
 By default it returns array of country sectors, if no params (province, district) are given
 
@@ -46,7 +46,7 @@ By default it returns array of country sectors, if no params (province, district
   If province and district are given it returns an array of sectors found from the given district in that province.
   It returns `[]` if either province or district is not found.
 
-### Cells()
+### Cells
 
 By default it returns an array of all country cells.
 
@@ -55,7 +55,7 @@ By default it returns an array of all country cells.
   if province, district and sector are given it returns an array of Cells found from the given sector.
   It returns `[]` if either province, district or sector is not found.
 
-### Villages()
+### Villages
 
 By default it returns an array of all country villages.
 

@@ -14,72 +14,62 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        //
+        $provinces = Province::get(['provinceName']);
+        return response()->json(
+            $provinces,
+            200
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $newProvince = new Province();
+        $newProvince->provinceName = $request['provinceName'];
+        $newProvince->save();
+        return response()->json([
+            'message' => 'Province Registered',
+            'data' => ['Province' => $newProvince]
+        ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Province  $province
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Province $province)
+    public function show($id)
     {
-        //
+        $province = Province::find($id);
+        return response()->json(
+            $province,
+            200
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Province  $province
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Province $province)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Province  $province
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Province $province)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $currentProvince =  Province::find($id);
+        if ($currentProvince) {
+            $currentProvince->provinceName = $request["provinceName"];
+            $currentProvince->save();
+            return response()->json([
+                'message' => 'Province Update',
+                'Province' => [$currentProvince]
+            ], 200);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Province  $province
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Province $province)
+        return response()->json([
+            'message' => 'No Province Found'
+        ], 404);
+    }
+    public function destroy(Request $request, $id)
     {
-        //
+        $currentProvince =  Province::find($id);
+        if ($currentProvince) {
+            $currentProvince->delete();
+            return response()->json([
+                'message' => 'Province Deleted Successfully',
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'No Province Found'
+        ], 404);
     }
 }

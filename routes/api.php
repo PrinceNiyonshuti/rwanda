@@ -19,11 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/Provinces')->group(function () {
+Route::prefix('/provinces')->group(function () {
     Route::get('', [ProvinceController::class, 'index']);
-    Route::post('/save', [ProvinceController::class, 'store']);
-    Route::patch('{province}', [ProvinceController::class, 'update']);
+    Route::get('/{id}', [ProvinceController::class, 'show']);
+    Route::post('/store', [ProvinceController::class, 'store']);
+    Route::post('{province}', [ProvinceController::class, 'update']);
     Route::delete('{province}', [ProvinceController::class, 'destroy']);
 });
-
-
