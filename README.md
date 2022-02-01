@@ -44,15 +44,15 @@ Returns object of country provinces , if no params (province) is given
 ]
 ```
 #### Available params for province endpoint
-  [url/api/provinces/2] for viewing single province
-  If province id is given it returns an object of province details.
-  It returns `[null]` if province is not found.
-  ```json
-  {
-      "id": 2,
-      "provinceName": "East",
-  }
-  ```
+[url/api/provinces/2] for viewing single province
+If province id is given it returns an object of province details.
+It returns `[null]` if province is not found.
+```json
+{
+    "id": 2,
+    "provinceName": "East",
+}
+```
 ### Districts
 
 By default it returns an array of country districts, if no params (province) is given
