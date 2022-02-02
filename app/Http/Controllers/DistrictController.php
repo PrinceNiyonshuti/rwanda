@@ -30,13 +30,17 @@ class DistrictController extends Controller
 
     public function show($id)
     {
-        $district = District::find($id);
-        return response()->json(
-            $district,
-            200
-        );
+        $currentProvince = District::find($id);
+        if ($currentProvince) {
+            return response()->json(
+                $currentProvince,
+                200
+            );
+        }
+        return response()->json([
+            'message' => 'No Province Found'
+        ], 404);
     }
-
 
     public function update(Request $request, $id)
     {

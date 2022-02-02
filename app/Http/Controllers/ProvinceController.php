@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProvinceRequest;
 use App\Models\Province;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,6 @@ class ProvinceController extends Controller
         return response()->json([
             'message' => 'No Province Found'
         ], 404);
-
     }
 
 
