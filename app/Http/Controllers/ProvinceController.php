@@ -34,11 +34,17 @@ class ProvinceController extends Controller
 
     public function show($id)
     {
-        $province = Province::find($id);
-        return response()->json(
-            $province,
-            200
-        );
+        $currentProvince =  Province::find($id);
+        if ($currentProvince) {
+            return response()->json(
+                $currentProvince,
+                200
+            );
+        }
+        return response()->json([
+            'message' => 'No Province Found'
+        ], 404);
+
     }
 
 

@@ -7,79 +7,65 @@ use Illuminate\Http\Request;
 
 class DistrictController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $districts = District::get(['districtName']);
+        return response()->json(
+            $districts,
+            200
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $newDistrict = new District();
+        $newDistrict->province_id = $request['province_id'];
+        $newDistrict->districtName = $request['districtName'];
+        $newDistrict->save();
+        return response()->json([
+            'message' => 'District Registered',
+            'data' => ['Districts' => $newDistrict]
+        ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\District  $district
-     * @return \Illuminate\Http\Response
-     */
-    public function show(District $district)
+    public function show($id)
     {
-        //
+        $district = District::find($id);
+        return response()->json(
+            $district,
+            200
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\District  $district
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(District $district)
+
+    public function update(Request $request, $id)
     {
-        //
+        $currentDistrict =  District::find($id);
+        if ($currentDistrict) {
+            $currentDistrict->province_id = $request['province_id'];
+            $currentDistrict->districtName = $request["districtName"];
+            $currentDistrict->save();
+            return response()->json([
+                'message' => 'District Update',
+                'Districts' => [$currentDistrict]
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'No District Found'
+        ], 404);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\District  $district
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, District $district)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\District  $district
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(District $district)
-    {
-        //
+        $currentDistrict =  District::find($id);
+        if ($currentDistrict) {
+            $currentDistrict->delete();
+            return response()->json([
+                'message' => 'District Deleted Successfully',
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'No District Found'
+        ], 404);
     }
 }
