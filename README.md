@@ -44,6 +44,7 @@ Returns array of country provinces , if no params is given
 ]
 ```
 #### Available parameter for province endpoint
+
 [url/api/provinces/2](#) for viewing single province
 If province id is given it returns an object of province details.
 It returns `[null]` if province is not found.
