@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,13 @@ Route::prefix('/provinces')->group(function () {
     Route::post('/store', [ProvinceController::class, 'store']);
     Route::post('{province}', [ProvinceController::class, 'update']);
     Route::delete('{province}', [ProvinceController::class, 'destroy']);
+});
+
+
+Route::prefix('/districts')->group(function () {
+    Route::get('', [DistrictController::class, 'index']);
+    Route::get('/{id}', [DistrictController::class, 'show']);
+    Route::post('/store', [DistrictController::class, 'store']);
+    Route::post('{district}', [DistrictController::class, 'update']);
+    Route::delete('{district}', [DistrictController::class, 'destroy']);
 });
