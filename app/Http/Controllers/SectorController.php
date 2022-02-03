@@ -7,79 +7,69 @@ use Illuminate\Http\Request;
 
 class SectorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $Sectors = Sector::get(['sectorName']);
+        return response()->json(
+            $Sectors,
+            200
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $newSector = new Sector();
+        $newSector->district_id = $request['district_id'];
+        $newSector->sectorName = $request['sectorName'];
+        $newSector->save();
+        return response()->json([
+            'message' => 'Sector Registered',
+            'data' => ['Sector' => $newSector]
+        ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Sector  $sector
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Sector $sector)
+    public function show($id)
     {
-        //
+        $currentSector = Sector::find($id);
+        if ($currentSector) {
+            return response()->json(
+                $currentSector,
+                200
+            );
+        }
+        return response()->json([
+            'message' => 'No Sector Found'
+        ], 404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Sector  $sector
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Sector $sector)
+    public function update(Request $request, $id)
     {
-        //
+        $currentSector =  Sector::find($id);
+        if ($currentSector) {
+            $currentSector->district_id = $request['district_id'];
+            $currentSector->sectorName = $request["sectorName"];
+            $currentSector->save();
+            return response()->json([
+                'message' => 'Sector Update',
+                'Sector' => [$currentSector]
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'No Sector Found'
+        ], 404);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sector  $sector
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Sector $sector)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Sector  $sector
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Sector $sector)
-    {
-        //
+        $currentSector =  Sector::find($id);
+        if ($currentSector) {
+            $currentSector->delete();
+            return response()->json([
+                'message' => 'Sector Deleted Successfully',
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'No Sector Found'
+        ], 404);
     }
 }
