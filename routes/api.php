@@ -4,6 +4,7 @@ use App\Http\Controllers\CellController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SectorController;
+use App\Http\Controllers\VillageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,6 @@ Route::prefix('/provinces')->group(function () {
     Route::delete('{province}', [ProvinceController::class, 'destroy']);
 });
 
-
 Route::prefix('/districts')->group(function () {
     Route::get('', [DistrictController::class, 'index']);
     Route::get('/{id}', [DistrictController::class, 'show']);
@@ -38,7 +38,6 @@ Route::prefix('/districts')->group(function () {
     Route::post('{district}', [DistrictController::class, 'update']);
     Route::delete('{district}', [DistrictController::class, 'destroy']);
 });
-
 
 Route::prefix('/sectors')->group(function () {
     Route::get('', [SectorController::class, 'index']);
@@ -48,11 +47,18 @@ Route::prefix('/sectors')->group(function () {
     Route::delete('{sector}', [SectorController::class, 'destroy']);
 });
 
-
 Route::prefix('/cells')->group(function () {
     Route::get('', [CellController::class, 'index']);
     Route::get('/{id}', [CellController::class, 'show']);
     Route::post('/store', [CellController::class, 'store']);
     Route::post('{cell}', [CellController::class, 'update']);
     Route::delete('{cell}', [CellController::class, 'destroy']);
+});
+
+Route::prefix('/villages')->group(function () {
+    Route::get('', [VillageController::class, 'index']);
+    Route::get('/{id}', [VillageController::class, 'show']);
+    Route::post('/store', [VillageController::class, 'store']);
+    Route::post('{village}', [VillageController::class, 'update']);
+    Route::delete('{village}', [VillageController::class, 'destroy']);
 });
