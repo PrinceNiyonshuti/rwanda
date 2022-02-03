@@ -14,7 +14,7 @@ class ProvinceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,7 @@ class ProvinceRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'provinceName' => ['required', Rule::unique('provinces', 'provinceName')->ignore($this->province)],
-            'provinceName' => ['required', 'unique:provinces,provinceName,except,id'],
+            'provinceName' => ['required', Rule::unique('provinces', 'provinceName')->ignore($this->province)],
         ];
     }
 }

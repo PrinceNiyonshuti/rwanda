@@ -17,14 +17,14 @@ class ProvinceController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(ProvinceRequest $request)
     {
         $newProvince = new Province();
         $newProvince->provinceName = $request['provinceName'];
         $newProvince->save();
         return response()->json([
             'message' => 'Province Registered',
-            'data' => ['Province' => $newProvince]
+            'Province' => $newProvince
         ], 200);
     }
 
@@ -43,7 +43,7 @@ class ProvinceController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ProvinceRequest $request, $id)
     {
         $currentProvince =  Province::find($id);
         if ($currentProvince) {
