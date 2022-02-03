@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CellController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SectorController;
@@ -45,4 +46,13 @@ Route::prefix('/sectors')->group(function () {
     Route::post('/store', [SectorController::class, 'store']);
     Route::post('{sector}', [SectorController::class, 'update']);
     Route::delete('{sector}', [SectorController::class, 'destroy']);
+});
+
+
+Route::prefix('/cells')->group(function () {
+    Route::get('', [CellController::class, 'index']);
+    Route::get('/{id}', [CellController::class, 'show']);
+    Route::post('/store', [CellController::class, 'store']);
+    Route::post('{cell}', [CellController::class, 'update']);
+    Route::delete('{cell}', [CellController::class, 'destroy']);
 });
