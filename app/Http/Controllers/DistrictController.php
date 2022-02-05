@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DistrictRequest;
 use App\Models\District;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class DistrictController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(DistrictRequest $request)
     {
         $newDistrict = new District();
         $newDistrict->province_id = $request['province_id'];
@@ -42,7 +43,7 @@ class DistrictController extends Controller
         ], 404);
     }
 
-    public function update(Request $request, $id)
+    public function update(DistrictRequest $request, $id)
     {
         $currentDistrict =  District::find($id);
         if ($currentDistrict) {

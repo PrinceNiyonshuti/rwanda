@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class DistrictRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class DistrictRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class DistrictRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'province_id' => 'required|exists:provinces,id',
+            'districtName' => ['required', Rule::unique('districts', 'districtName')->ignore($this->district)],
         ];
     }
 }
