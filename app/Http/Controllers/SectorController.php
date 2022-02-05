@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SectorRequest;
 use App\Models\Sector;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class SectorController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(SectorRequest $request)
     {
         $newSector = new Sector();
         $newSector->district_id = $request['district_id'];
@@ -42,7 +43,7 @@ class SectorController extends Controller
         ], 404);
     }
 
-    public function update(Request $request, $id)
+    public function update(SectorRequest $request, $id)
     {
         $currentSector =  Sector::find($id);
         if ($currentSector) {
