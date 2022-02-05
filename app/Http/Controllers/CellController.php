@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CellRequest;
 use App\Models\Cell;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CellController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(CellRequest $request)
     {
         $newCell = new Cell();
         $newCell->sector_id = $request['sector_id'];
@@ -42,7 +43,7 @@ class CellController extends Controller
         ], 404);
     }
 
-    public function update(Request $request, $id)
+    public function update(CellRequest $request, $id)
     {
         $currentCell =  Cell::find($id);
         if ($currentCell) {

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CellRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CellRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class CellRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sector_id' => 'required|exists:sectors,id',
+            'cellName' => ['required', Rule::unique('cells', 'cellName')->ignore($this->sector)],
         ];
     }
 }
