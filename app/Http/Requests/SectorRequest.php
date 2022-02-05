@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SectorRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class SectorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class SectorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'district_id' => 'required|exists:district_id,id',
+            'sectorName' => ['required', Rule::unique('sectors', 'sectorName')->ignore($this->sector)],
         ];
     }
 }
