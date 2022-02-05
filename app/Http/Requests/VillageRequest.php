@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class VillageRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class VillageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,8 @@ class VillageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'cell_id' => 'required|exists:cells,id',
+            'villageName' => ['required', Rule::unique('villages', 'villageName')->ignore($this->village)],
         ];
     }
 }

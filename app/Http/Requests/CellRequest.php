@@ -26,7 +26,7 @@ class CellRequest extends FormRequest
     {
         return [
             'sector_id' => 'required|exists:sectors,id',
-            'cellName' => ['required', Rule::unique('cells', 'cellName')->ignore($this->sector)],
+            'cellName' => ['required', Rule::unique('cells', 'cellName')->ignore($this->cell)],
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VillageRequest;
 use App\Models\Village;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class VillageController extends Controller
         );
     }
 
-    public function store(Request $request)
+    public function store(VillageRequest $request)
     {
         $newVillage = new Village();
         $newVillage->cell_id = $request['cell_id'];
@@ -42,7 +43,7 @@ class VillageController extends Controller
         ], 404);
     }
 
-    public function update(Request $request, $id)
+    public function update(VillageRequest $request, $id)
     {
         $currentVillage =  Village::find($id);
         if ($currentVillage) {
