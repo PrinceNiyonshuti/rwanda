@@ -15,5 +15,6 @@ class SectortSeeder extends Seeder
     public function run()
     {
         //
+        Schema::disableForeignKeyConstraints();
     }
 }
