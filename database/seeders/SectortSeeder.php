@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sector;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -16,6 +17,7 @@ class SectortSeeder extends Seeder
     {
         //
         Schema::disableForeignKeyConstraints();
+        Sector::truncate();
         Schema::enableForeignKeyConstraints();
     }
 }
