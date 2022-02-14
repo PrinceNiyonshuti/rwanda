@@ -2,7 +2,7 @@
 
 ## About - Rwanda
 
-This is a simple laravel API that returns provinces, districts, sectors, villages and cells found in Rwanda.
+This is a simple API that returns provinces, districts, sectors, villages and cells found in Rwanda.
 
 Rwanda is organized in four provinces in addition to the Kigali city, 30 Districts, 416 Sectors, 2148 Cells and 14 837 Villages.
 
