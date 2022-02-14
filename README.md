@@ -107,4 +107,4 @@ By default it returns an array of all country villages.
 
 ## Author
 
-Niyonshuti Prince
+NIYONSHUTI Prince
