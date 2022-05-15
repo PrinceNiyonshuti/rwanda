@@ -1,6 +1,6 @@
 <p align="center"><a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Rwanda.svg" width="400"></a></p>
 
-## About - Rwanda
+## Rwanda
 
 This is a simple API that returns provinces, districts, sectors, villages and cells found in Rwanda.
 
