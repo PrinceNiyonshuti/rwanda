@@ -96,8 +96,6 @@ By default it returns an array of all country villages.
     php artisan key:generate
     php artisan migrate
     php artisan db:seed
-    php artisan storage:link
-    php artisan queue:work
     php artisan serve
 
 ## Feedback and issues
