@@ -19,10 +19,10 @@ class ProvinceSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Province::truncate();
         Province::create(['provinceName' => 'Kigali City']);
-        Province::create(['provinceName' => 'Northern Province']);
-        Province::create(['provinceName' => 'Southern Province']);
-        Province::create(['provinceName' => 'Eastern Province']);
-        Province::create(['provinceName' => 'Western Province']);
+        Province::create(['provinceName' => 'North']);
+        Province::create(['provinceName' => 'South']);
+        Province::create(['provinceName' => 'East']);
+        Province::create(['provinceName' => 'West']);
         Schema::enableForeignKeyConstraints();
     }
 }
