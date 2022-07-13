@@ -18,7 +18,7 @@ class DistrictSeeder extends Seeder
         //
         Schema::disableForeignKeyConstraints();
         District::truncate();
-        District::create(['provinceName' => 'Kigali City']);
+        District::create(['province_id' => '1', 'districtName' => 'Nyarugenge']);
         Schema::enableForeignKeyConstraints();
     }
 }
