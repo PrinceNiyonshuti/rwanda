@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\District;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,5 +16,9 @@ class DistrictSeeder extends Seeder
     public function run()
     {
         //
+        Schema::disableForeignKeyConstraints();
+        District::truncate();
+        District::create(['provinceName' => 'Kigali City']);
+        Schema::enableForeignKeyConstraints();
     }
 }
