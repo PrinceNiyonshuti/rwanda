@@ -18,6 +18,8 @@ class DistrictSeeder extends Seeder
         //
         Schema::disableForeignKeyConstraints();
         District::truncate();
+        District::create(['province_id' => '1', 'districtName' => 'Gasabo']);
+        District::create(['province_id' => '1', 'districtName' => 'Kicukiro']);
         District::create(['province_id' => '1', 'districtName' => 'Nyarugenge']);
         Schema::enableForeignKeyConstraints();
     }
