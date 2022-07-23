@@ -6,7 +6,6 @@ This is a simple API that returns provinces, districts, sectors, villages and ce
 
 Rwanda is organized in four provinces in addition to the Kigali city, 30 Districts, 416 Sectors, 2148 Cells and 14 837 Villages.
 
-## Flow Chart 
 ## Endpoints
 
 - [Provinces](#/api/provinces)
