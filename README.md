@@ -91,12 +91,8 @@ By default it returns an array of all country villages.
   It returns `[]` if either province, district , sector or cell is not found.
 
 ## Install - run the following scripts
-    composer install
-    cp .env.example .env or copy .env.example .env
-    php artisan key:generate
-    php artisan migrate
-    php artisan db:seed
-    php artisan ser
+```bash
+```
 
 ## Feedback and issues
 
