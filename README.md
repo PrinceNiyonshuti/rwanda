@@ -94,6 +94,7 @@ By default it returns an array of all country villages.
 ```bash
   composer install
   cp .env.example .env or copy .env.example .env
+  php artisan key:generate
 ```
 
 ## Feedback and issues
