@@ -92,6 +92,7 @@ By default it returns an array of all country villages.
 
 ## Install - run the following scripts
 ```bash
+composer install
 ```
 
 ## Feedback and issues
