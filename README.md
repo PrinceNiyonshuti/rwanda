@@ -92,7 +92,8 @@ By default it returns an array of all country villages.
 
 ## Install - run the following scripts
 ```bash
-composer install
+  composer install
+  cp .env.example .env or copy .env.example .env
 ```
 
 ## Feedback and issues
