@@ -96,6 +96,7 @@ By default it returns an array of all country villages.
   cp .env.example .env or copy .env.example .env
   php artisan key:generate
   php artisan migrate
+  php artisan db:seed
 ```
 
 ## Feedback and issues
